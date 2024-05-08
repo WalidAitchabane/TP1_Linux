@@ -1,6 +1,5 @@
-#!/bo -n
-
-echo  "Saisissez le nom du repertoire : "
+#!/bin/bash
+echo -n  "Saisissez le nom du repertoire : "
 read rep
 
 if [ -d $rep ]; then
