@@ -1,1 +1,48 @@
+TP1:
+Partie A:
+- Se connecter A la VM linux avec le super user root et créer le compte "admin"
+  # adduser admin
 
+- Se connecter avec le user "admin" ( avec chargement du .profil / $HOME ) --> "su - admin" ( au lieu de "su admin" )
+  # su - admin 
+
+- Créer le répertoire " SCRIPTS " dans /home/admin
+  # mkdir SCRIPTS
+
+- Créer les répertoires suivants dans "/home/admin" : app, sauvegardes, my_projects, archives.
+  # mkdir app sauvegardes my_projects archives
+
+- Créer un script nommé "create_directories.sh" dans le répertoire SCRIPTS et accordez les droits d'exécution seulement pour le compte admin.
+  # cd SCRIPTS
+  # vi create_directories.sh
+  # chmod u+x create_directories.sh
+
+- Essayer de reproduire toutes les étapes de créations des répertoires utilisant ce script ( àenrichir)
+  # Voir le script (create_directories.sh)
+
+Partie B:
+
+- Créer un utilisateur nommé "admintech" avec les mêmes droits sudo que le user root et un password = "admintech"
+  # adduser admintech
+
+  Pour que admintech aura les memes droits que root, j'ai ouvert le fichier "sudoers" en utlilisant la commande "# sudo visudo" après j'ai rejouté la ligne suivante
+  à la fin de ce fichier "admintech   ALL=(ALL)   NOPASSWD: ALL"
+
+- reproduire les étapes de créations des différents répertoires sous SCRIPTS pour le user admintech à l'aide d'une boucle for qui doit être écrite dans un script nommé 
+  create_directories.sh sous /home/admintech/SCRIPTS ( penser à enrichir le script avec manipulation des variables, génération de logs, ...etc )
+  # mkdir SCRIPTS
+  # vi create_directories.sh
+  pour le script voir le fichier "create_directories.sh"
+
+
+- ajouter les droits d'exécution au script avec deux méthodes différentes et uniquement pour le user admintech.
+  # chmod u+x create_directories.sh
+ 
+  Pour la deuxième méthode j'ai rajouté la ligne suivante à la fin du fichier "sudoers":
+   "admintech   ALL=(ALL)   NOPASSWD: /home/admintech/SCRIPTS/create_directories.sh"
+
+- exécuter le script avec le user admintech et vérifier la bonne création des répertoires ( faire voir les messages dans le log )
+- Créer une tâche planifiée qui s'exécute toutes les 2 minutes et lance le script ( à créer aussi ) qui permet de créer des fichiers "fichier{i}_{$date_HHMMSS}.txt dans le dossier "my_project" ( i : entier à incrémenter, date : en format yyymmdd )
+- créer une 2ème tache planifiée qui permettra de vérifier la présence des fichiers horodaté ( date du jour ), puis les déplacer dans le dossier archives
+
+- exécuter la commande "sudo su" avec le compte admintech et laisser le process en cours, puis killer ce processus avec une autre session 
