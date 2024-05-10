@@ -34,7 +34,7 @@ Partie B:
   # cd SCRIPTS
   # vi create_directories.sh
   
-  pour le script voir le fichier "create_directories.sh"
+  pour le script voir le fichier "create_directories1.sh"
 
 - ajouter les droits d'exécution au script avec deux méthodes différentes et uniquement pour le user admintech.
   # chmod u+x create_directories.sh
@@ -51,7 +51,7 @@ Partie B:
   # vi fichier.sh
   # chmod u+x fichier.sh
 
-  Pour le script voir le fichier "fichier.sh"
+  Pour le script voir le fichier "fichier.sh" dans le dossier "my_project"
   
   Pour la tâche planifiée j'ai rajouté la ligne suivante dans le fichier crontab:
   # crontab -e
@@ -80,5 +80,5 @@ ensuite pour l'ensemble des produits).
 2- renvoyer les lignes correspondantes aux différents produits dont le bénéfice est inférieur à 3 € ( prix achat, prix vente taxes et bénéfice ) dans un fichier nommé 
 produit_risque_revente_a_perte.csv ( à créer dans un répertoire de votre choix.
 
-Pour la solution voir le script "produit.sh"
+Pour la solution voir le script "produit.sh" et le fichier ".csv"
  
